@@ -4,7 +4,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "home page" 
+	return render_template('home.html')
+    # return "home page" 
+
+@app.route('/student/<int:number>')
+def display_student(number):
+	return render_template('student.html', id_number = number)
+
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+	app.run(debug=True)
